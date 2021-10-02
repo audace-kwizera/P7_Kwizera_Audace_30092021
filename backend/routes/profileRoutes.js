@@ -1,7 +1,10 @@
+/** Installer le router express */
 const express = require('express');
 const router = express.Router();
+/** Connecter la base de donné */
 const db = require('../models');
 
+/** Créer un nouveau profil */
 router.post('/new', (req, res, next) => {
     db.Profile.create({
         name: req.body.name,
@@ -11,6 +14,7 @@ router.post('/new', (req, res, next) => {
     .catch();
 });
 
+/** Obtenir un profil */
 router.get('/find/:id', (req, res, next) => {
     db.Profile.findAll({
         wher: { UserId: req.params.id },

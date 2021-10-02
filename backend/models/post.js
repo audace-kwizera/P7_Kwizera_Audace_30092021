@@ -1,3 +1,4 @@
+/** Création du modèle profile */
 module.exports = (sequelize, DataTypes) => {
     const Post = sequelize.define("Post", {
         text: {
@@ -6,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
+    /** associer le post au à l'utilisateur qui 
+     * a fait le post
+     */
     Post.associate = models => {
         Post.belongsTo(models.User, {
             foreignKey: {

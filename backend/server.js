@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-/** Les routes */
+/** Création et utilisation des routes */
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
 

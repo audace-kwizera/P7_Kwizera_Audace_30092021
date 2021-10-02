@@ -1,3 +1,4 @@
+/** Création du modèle profile */
 module.exports = (sequelize, DataTypes) => {
     const Profile = sequelize.define("Profile", {
         name: {
@@ -6,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
+    /** associer le profile au à l'utilisateur auquel
+     * il appartient
+     */
     Profile.associate = models => {
         Profile.belongsTo(models.User, {
             foreignKey: {

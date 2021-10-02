@@ -1,7 +1,10 @@
+/** Installer le router express */
 const express = require('express');
 const router = express.Router();
+/** Connecter la base de donné */
 const db = require('../models');
 
+/** Créer un nouvel utilisateur */
 router.post('/new', (req, res, next) => {
     db.User.create({
         username: req.body.username
@@ -10,6 +13,7 @@ router.post('/new', (req, res, next) => {
     .catch();
 });
 
+/** Obtenir les utilisateur */
 router.get('/all', (req, res, next) => {
     db.User.findAll({
         include: [db.Profile, db.Post]
