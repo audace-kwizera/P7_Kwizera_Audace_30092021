@@ -16,8 +16,11 @@ app.use(express.json());
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
 
+const profileRoutes = require('./routes/profileRoutes');
+app.use('/api/profiles', profileRoutes);
 
-
+const postRoutes = require('./routes/postRoutes');
+app.use('/api/posts', postRoutes);
 
 /** Connexion de la database au serveur */
 db.sequelize.sync().then(() => {
