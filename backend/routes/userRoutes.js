@@ -10,4 +10,12 @@ router.post('/new', (req, res, next) => {
     .catch();
 });
 
+router.get('/all', (req, res, next) => {
+    db.User.findAll({
+        include: [db.Profile, db.Post]
+    })
+    .then(allUsers => res.send(allUsers))
+    .catch();
+});
+
 module.exports = router;
